@@ -1,0 +1,194 @@
+local a=Instance.new("ScreenGui")a.Parent=game.CoreGui
+a.ResetOnSpawn=false
+local b=Instance.new("Frame")
+b.Size=UDim2.new(0,250,0,360)
+b.Position=UDim2.new(0.5,-125,0.5,-180)
+b.BackgroundColor3=Color3.new(0.05,0,0.1)
+b.Parent=a
+b.Active=true
+b.Draggable=true
+local c=Instance.new("TextLabel")
+c.Text="Developer: VTLSEV"
+c.Size=UDim2.new(1,0,0.15,0)
+c.Position=UDim2.new(0,0,0,0)
+c.TextColor3=Color3.new(0.8,0.3,0.9)
+c.Font=Enum.Font.Gotham
+c.TextSize=14
+c.BackgroundTransparency=1
+c.Parent=b
+local d=Instance.new("TextButton")
+d.Size=UDim2.new(1,0,0.15,0)
+d.Position=UDim2.new(0,0,0.15,0)
+d.Text="Fly"
+d.TextColor3=Color3.new(0.8,0.3,0.9)
+d.Font=Enum.Font.GothamBold
+d.TextSize=16
+d.BackgroundColor3=Color3.new(0.1,0,0.2)
+d.Parent=b
+local e=Instance.new("TextButton")
+e.Size=UDim2.new(1,0,0.15,0)
+e.Position=UDim2.new(0,0,0.30,0)
+e.Text="Noclip"
+e.TextColor3=Color3.new(0.8,0.3,0.9)
+e.Font=Enum.Font.GothamBold
+e.TextSize=16
+e.BackgroundColor3=Color3.new(0.1,0,0.2)
+e.Parent=b
+local f=Instance.new("TextButton")
+f.Size=UDim2.new(1,0,0.15,0)
+f.Position=UDim2.new(0,0,0.45,0)
+f.Text="Infinite Jump"
+f.TextColor3=Color3.new(0.8,0.3,0.9)
+f.Font=Enum.Font.GothamBold
+f.TextSize=16
+f.BackgroundColor3=Color3.new(0.1,0,0.2)
+f.Parent=b
+local g=Instance.new("TextButton")
+g.Size=UDim2.new(1,0,0.15,0)
+g.Position=UDim2.new(0,0,0.60,0)
+g.Text="Hide Menu"
+g.TextColor3=Color3.new(0.8,0.3,0.9)
+g.Font=Enum.Font.GothamBold
+g.TextSize=16
+g.BackgroundColor3=Color3.new(0.1,0,0.2)
+g.Parent=b
+local h=Instance.new("TextButton")
+h.Size=UDim2.new(0,50,0,50)
+h.Position=UDim2.new(1,-60,0.5,-25)
+h.Text="Menu"
+h.TextColor3=Color3.new(0.8,0.3,0.9)
+h.Font=Enum.Font.GothamBold
+h.TextSize=14
+h.BackgroundColor3=Color3.new(0.1,0,0.2)
+h.Parent=a
+h.Visible=false
+local i=Instance.new("TextButton")
+i.Size=UDim2.new(1,0,0.15,0)
+i.Position=UDim2.new(0,0,0.75,0)
+i.Text="Infinite Health"
+i.TextColor3=Color3.new(0.8,0.3,0.9)
+i.Font=Enum.Font.GothamBold
+i.TextSize=16
+i.BackgroundColor3=Color3.new(0.1,0,0.2)
+i.Parent=b
+local j=Instance.new("TextButton")
+j.Size=UDim2.new(0.6,0,0.15,0)
+j.Position=UDim2.new(0,0,0.90,0)
+j.Text="Speed"
+j.TextColor3=Color3.new(0.8,0.3,0.9)
+j.Font=Enum.Font.GothamBold
+j.TextSize=16
+j.BackgroundColor3=Color3.new(0.1,0,0.2)
+j.Parent=b
+local k=Instance.new("TextBox")
+k.Size=UDim2.new(0.4,0,0.15,0)
+k.Position=UDim2.new(0.6,0,0.90,0)
+k.Text="16"
+k.TextColor3=Color3.new(1,1,1)
+k.Font=Enum.Font.Gotham
+k.TextSize=16
+k.BackgroundColor3=Color3.new(0.2,0,0.3)
+k.Parent=b
+local l=game.Players.LocalPlayer
+local m=l.Character or l.CharacterAdded:Wait()
+local n=m:WaitForChild("Humanoid")
+local o=m:WaitForChild("HumanoidRootPart")
+local p=false
+local q
+local r
+local s=50
+local function t(u)for _,v in ipairs(m:GetDescendants())do if v:IsA("BasePart")and v.CanCollide~=u then v.CanCollide=u end end end
+local function v()
+if p then return end
+p=true
+n.PlatformStand=true
+t(false)
+q=Instance.new("BodyVelocity",o)
+q.Velocity=Vector3.new(0,0,0)
+q.MaxForce=Vector3.new(400000,400000,400000)
+r=Instance.new("BodyGyro",o)
+r.MaxTorque=Vector3.new(400000,400000,400000)
+r.CFrame=o.CFrame
+end
+local function w()
+p=false
+n.PlatformStand=false
+t(true)
+if q then q:Destroy()end
+if r then r:Destroy()end
+end
+d.MouseButton1Click:Connect(function()
+if p then
+w()
+d.Text="Fly"
+else
+v()
+d.Text="Disable Fly"
+end
+end)
+local x=game:GetService("UserInputService")
+game:GetService("RunService").RenderStepped:Connect(function()
+if p then
+local y=Vector3.new()
+if x:IsKeyDown(Enum.KeyCode.W)then y=y+o.CFrame.LookVector end
+if x:IsKeyDown(Enum.KeyCode.S)then y=y-o.CFrame.LookVector end
+if x:IsKeyDown(Enum.KeyCode.A)then y=y-o.CFrame.RightVector end
+if x:IsKeyDown(Enum.KeyCode.D)then y=y+o.CFrame.RightVector end
+if x:IsKeyDown(Enum.KeyCode.Space)then y=y+Vector3.new(0,1,0) end
+if x:IsKeyDown(Enum.KeyCode.LeftControl)then y=y-Vector3.new(0,1,0) end
+q.Velocity=y*s
+r.CFrame=CFrame.new(o.Position,o.Position+o.CFrame.LookVector)
+end
+end)
+local z=true
+g.MouseButton1Click:Connect(function()
+z=not z
+b.Visible=z
+g.Text=z and"Hide Menu"or"Show Menu"
+h.Visible=not z
+end)
+h.MouseButton1Click:Connect(function()
+z=true
+b.Visible=true
+h.Visible=false
+g.Text="Hide Menu"
+end)
+local A=false
+e.MouseButton1Click:Connect(function()
+A=not A
+e.Text=A and"Disable Noclip"or"Noclip"
+for _,B in pairs(m:GetDescendants())do if B:IsA("BasePart")then B.CanCollide=not A end end
+end)
+local C=false
+f.MouseButton1Click:Connect(function()
+C=not C
+f.Text=C and"Disable Infinite Jump"or"Infinite Jump"
+if C then
+game:GetService("UserInputService").JumpRequest:Connect(function()
+if C then n:ChangeState(Enum.HumanoidStateType.Jumping)end
+end)
+end
+end)
+local D=false
+i.MouseButton1Click:Connect(function()
+D=not D
+i.Text=D and"Disable Infinite Health"or"Infinite Health"
+if D then
+n.HealthChanged:Connect(function()
+if D then n.Health=n.MaxHealth end
+end)
+n.Died:Connect(function()
+if D then
+n.Health=n.MaxHealth
+n:ChangeState(Enum.HumanoidStateType.Physics)
+end
+end)
+end
+end)
+local E=16
+j.MouseButton1Click:Connect(function()
+local F=tonumber(k.Text)
+if F and F>0 then E=F else k.Text="16"end
+end)
+local function G()n.WalkSpeed=E end
+game:GetService("RunService").Heartbeat:Connect(G)
