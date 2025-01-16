@@ -1,0 +1,75 @@
+local _0x1a2b3c = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+local _0x4d5e6f = game:GetService("TweenService")
+local _0x7f8a9b = game:GetService("Lighting")
+local _0x1d2e3f = game:GetService("MaterialService")
+
+local _0x9a0b1c = Instance.new("ScreenGui", _0x1a2b3c)
+_0x9a0b1c.ResetOnSpawn = false
+
+local _0x0f1a2b = Instance.new("Frame", _0x9a0b1c)
+_0x0f1a2b.Size = UDim2.new(0, 300, 0, 250)
+_0x0f1a2b.Position = UDim2.new(0.5, -150, 0.5, -125)
+_0x0f1a2b.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+_0x0f1a2b.BackgroundTransparency = 0.2
+_0x0f1a2b.BorderSizePixel = 0
+
+local _0x3b4c5d = Instance.new("TextButton", _0x0f1a2b)
+_0x3b4c5d.Size = UDim2.new(0, 260, 0, 50)
+_0x3b4c5d.Position = UDim2.new(0, 20, 0, 70)
+_0x3b4c5d.BackgroundColor3 = Color3.fromRGB(128, 0, 128)
+_0x3b4c5d.TextColor3 = Color3.fromRGB(255, 255, 255)
+_0x3b4c5d.TextSize = 24
+_0x3b4c5d.Text = "FPS Boost"
+_0x3b4c5d.Font = Enum.Font.GothamSemibold
+
+local _0x6e7f8g = Instance.new("TextLabel", _0x9a0b1c)
+_0x6e7f8g.Size = UDim2.new(0, 250, 0, 50)
+_0x6e7f8g.Position = UDim2.new(0.5, -125, 1, -120)
+_0x6e7f8g.BackgroundTransparency = 1
+_0x6e7f8g.TextColor3 = Color3.fromRGB(255, 255, 255)
+_0x6e7f8g.TextSize = 18
+_0x6e7f8g.Text = "FPS Boost Loading..."
+_0x6e7f8g.Font = Enum.Font.GothamSemibold
+_0x6e7f8g.TextStrokeTransparency = 0.8
+_0x6e7f8g.Visible = false
+
+local _0x4a5b6c = Instance.new("TextLabel", _0x0f1a2b)
+_0x4a5b6c.Size = UDim2.new(0, 260, 0, 30)
+_0x4a5b6c.Position = UDim2.new(0, 20, 0, 190)
+_0x4a5b6c.BackgroundTransparency = 1
+_0x4a5b6c.TextColor3 = Color3.fromRGB(255, 255, 255)
+_0x4a5b6c.TextSize = 16
+_0x4a5b6c.Text = "Creator: VTLSEV"
+_0x4a5b6c.Font = Enum.Font.GothamSemibold
+_0x4a5b6c.TextStrokeTransparency = 0.8
+
+local function _0x2b3c4d()
+    for _, _0x5f6g7h in ipairs(game:GetDescendants()) do
+        if _0x5f6g7h:IsA("BasePart") then
+            _0x5f6g7h.Material = Enum.Material.Plastic
+            _0x5f6g7h.Reflectance = 0
+        elseif _0x5f6g7h:IsA("ParticleEmitter") or _0x5f6g7h:IsA("Trail") then
+            _0x5f6g7h.Enabled = false
+        elseif _0x5f6g7h:IsA("Decal") then
+            _0x5f6g7h.Transparency = 1
+        end
+    end
+    _0x1d2e3f.Use2022Materials = false
+    _0x7f8a9b.GlobalShadows = false
+end
+
+_0x3b4c5d.MouseButton1Click:Connect(function()
+    _0x0f1a2b.Visible = false
+    _0x6e7f8g.Visible = true
+
+    _0x4d5e6f:Create(_0x6e7f8g, TweenInfo.new(0.5, Enum.EasingStyle.Linear, Enum.EasingDirection.Out), {TextTransparency = 0}):Play()
+    
+    task.wait(4.5)
+
+    _0x4d5e6f:Create(_0x6e7f8g, TweenInfo.new(0.5), {TextTransparency = 1}):Play()
+
+    task.wait(0.5)
+    _0x6e7f8g:Destroy()
+
+    _0x2b3c4d()
+end)
