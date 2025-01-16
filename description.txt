@@ -1,0 +1,30 @@
+┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┓
+𝐒𝐜𝐫𝐢𝐩𝐭 𝐛𝐲                                                 ▏ 
+██╗░░░██╗████████╗██╗░░░░░░██████╗███████╗██╗░░░██╗    ┃
+██║░░░██║╚══██╔══╝██║░░░░░██╔════╝██╔════╝██║░░░██║    ║▏
+╚██╗░██╔╝░░░██║░░░██║░░░░░╚█████╗░█████╗░░╚██╗░██╔╝    ║
+░╚████╔╝░░░░██║░░░██║░░░░░░╚═══██╗██╔══╝░░░╚████╔╝░    ║▏
+░░╚██╔╝░░░░░██║░░░███████╗██████╔╝███████╗░░╚██╔╝░░    ║
+░░░╚═╝░░░░░░╚═╝░░░╚══════╝╚═════╝░╚══════╝░░░╚═╝░░░    ║▏
+┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┛
+Fly & Noclip GUI for Roblox
+
+This script provides a simple and customizable GUI for Roblox with features like Fly, Noclip, Infinite Jump, Infinite Health, and Speed Adjustments. It includes buttons to toggle these functionalities and a draggable menu for easy access during gameplay.
+
+Features:
+Fly Mode: Activate flight with adjustable speed.
+Noclip Mode: Toggle collision detection on/off for walking through walls.
+Infinite Jump: Allows infinite jumping without touching the ground.
+Infinite Health: Automatically restores health to the maximum.
+Speed Adjustment: Adjust walking speed through a simple input field.
+Menu Toggle: Hide or show the control panel with a single button.
+Controls:
+W, A, S, D: Movement control in fly mode.
+Space: Ascend in fly mode.
+LeftControl: Descend in fly mode.
+Menu: Use the menu button to show/hide the control panel.
+Installation:
+Open Roblox Studio.
+Insert a LocalScript in the StarterPlayer.
+Copy and paste the script into the LocalScript.
+Run the game to test the features.
